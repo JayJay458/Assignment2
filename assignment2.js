@@ -1,6 +1,10 @@
 // FOR EACH //
-Array.prototype.myEach = function() {
+Array.prototype.myEach = function(array,operation) {
 
+    for(element in array)
+    {
+        operation(element);
+    }
 };
 
 // MAP //
@@ -9,7 +13,8 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
+Array.prototype.myFilter = function(array,condition) {
+
 
 };
 
@@ -57,3 +62,8 @@ Object.grabKeys = function() {
 Object.grabValues = function() {
 
 };
+
+let myArray= [ 1,2,3,4,5,6,7];
+myArray.forEach(element=>console.log(element));
+
+myArray.myEach(element=>console.log(element));
