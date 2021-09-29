@@ -9,8 +9,16 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+Array.prototype.myFilter = function(array,operation) {
+    let returnValue=[];
+    for(let i=0;i<array.length; i++)
+    {
+        if(operation(array[i]))
+        {
+            returnValue.push(array[i]);
+        }
+    }
+    return returnValue;
 };
 
 // SOME //
@@ -57,3 +65,10 @@ Object.grabKeys = function() {
 Object.grabValues = function() {
 
 };
+
+let myArray=[1,2,3,4,5,6,7,8]
+
+let printOut = myArray.filter(number => number<6 );
+console.log(printOut);
+printOut = myArray.myFilter(number => number<6 );
+console.log(printOut);
