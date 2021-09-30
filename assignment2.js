@@ -14,7 +14,8 @@ Array.prototype.myFilter = function() {
 };
 
 // SOME //
-Array.prototype.mySome = function() {
+Array.prototype.mySome = function() 
+{
 
 };
 
