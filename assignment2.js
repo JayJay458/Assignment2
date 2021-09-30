@@ -1,9 +1,10 @@
 // FOR EACH //
-Array.prototype.myEach = function(operation,index=0,array=this) {
+Array.prototype.myEach = function(operation) {
 
-    for(let i=index;i<array.length;i++)
+    for(let i=0;i<this.length;i++)
     {
-        operation(array[i]);
+        if(this[i]===undefined) continue;
+        operation(this[i],i,this);
 
     }
 };
@@ -67,6 +68,6 @@ Object.grabValues = function() {
 let myArray= [ 1,2,3,4,5,6,7];
 
 
-myArray.myEach(element=>console.log(element+2));
+myArray.myEach((element,i)=>console.log(element,i,myArray));
 
-myArray.forEach(element=>console.log(element));
+myArray.forEach((element,i)=>console.log(element,i,myArray));
