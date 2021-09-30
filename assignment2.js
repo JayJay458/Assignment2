@@ -14,9 +14,19 @@ Array.prototype.myFilter = function() {
 };
 
 // SOME //
-Array.prototype.mySome = function() 
+Array.prototype.mySome = function(operation) 
 {
 
+    for(let i=0;i<this.length;i++)
+    {
+        if(this[i]===undefined) continue;
+        if(operation(this[i],i,this))
+        {
+            return true;
+        }   
+    }
+
+    return false;
 };
 
 // EVERY //
@@ -58,3 +68,25 @@ Object.grabKeys = function() {
 Object.grabValues = function() {
 
 };
+
+//Test
+
+
+let myArray=[1,1,1,1,1,1]
+
+let result=myArray.some(element=> element%2===0);
+console.log(result);
+
+result=myArray.mySome(element=> element%2===0);
+console.log(result);
+
+
+myArray=[1,1,2,1,1]
+
+result=myArray.some(element=> element%2===0);
+console.log(result);
+
+result=myArray.mySome(element=> element%2===0);
+console.log(result);
+
+
