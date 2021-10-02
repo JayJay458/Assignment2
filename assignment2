@@ -4,8 +4,13 @@ Array.prototype.myEach = function() {
 };
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(map_function) {
+    const temp_array = [];
+    for(let i=0; i<this.length; i++)
+    {
+        temp_array[i] = map_function(this[i]);
+    }
+    return temp_array;
 };
 
 // FILTER //
