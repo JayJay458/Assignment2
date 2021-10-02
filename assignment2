@@ -29,20 +29,8 @@ Array.prototype.myEvery = function() {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function(reduce_function, init_value){
-    if(typeof init_value === "undefined")
-    {
-        let prev_value = this[0];
-        for(let i=1; i<this.length; i++){
-            prev_value = reduce_function(prev_value, this[i]);
-        }
-        return prev_value;
-    }
-    let temp_value = init_value;
-    for(let i=0; i<this.length; i++){
-        temp_value = reduce_function(temp_value, this[i]);
-    }
-    return temp_value;
+Array.prototype.myReduce = function(){
+    
 };
 
 // INCLUDES //
