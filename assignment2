@@ -44,7 +44,17 @@ Array.prototype.myPush = function() {
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+Array.prototype.myLastIndexOf = function(find_obj, start_from = (this.length-1) ) {
+    let index = -1;
+    for(let i = start_from; i>=0; i--)
+    {
+        if(this[i] === find_obj)
+        {
+            index = i;
+            return index;
+        }
+    }
+    return index;
 
 };
 
