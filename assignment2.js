@@ -1,4 +1,5 @@
 // FOR EACH //
+
 Array.prototype.myEach = function(operation) {
 
     for(let i=0;i<this.length;i++)
@@ -7,6 +8,7 @@ Array.prototype.myEach = function(operation) {
         operation(this[i],i,this);
 
     }
+
 };
 
 // MAP //
@@ -15,7 +17,40 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function(array,condition) {
+
+
+// SOME //
+Array.prototype.mySome = function(operation) 
+{
+
+    for(let i=0;i<this.length;i++)
+    {
+        if(this[i]===undefined) continue;
+        if(operation(this[i],i,this))
+        {
+            return true;
+        }   
+    }
+
+    return false;
+};
+
+// EVERY //
+Array.prototype.myEvery = function() {
+
+
+
+Array.prototype.myFilter = function(operation) {
+    let returnValue=[];
+    for(let i=0;i<this.length; i++)
+    {
+        if(operation(this[i],i,this))
+        {
+            returnValue.push(this[i]);
+        }
+    }
+    return returnValue;
+
 
 
 };
@@ -26,7 +61,24 @@ Array.prototype.mySome = function() {
 };
 
 // EVERY //
-Array.prototype.myEvery = function() {
+
+
+
+
+Array.prototype.myEvery = function(operation) {
+    for(let i =0;i<this.length;i++)
+    {
+        if(!operation(this[i],i,this))
+        {
+            return false;
+        }
+    }
+    return true;
+
+
+
+
+
 
 };
 
@@ -36,7 +88,21 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
+
+
+
+Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
+
+    for(let i =fromIndex;i<this.length;i++)
+    {
+        if(this[i]===searchFor)
+        {
+            return true;
+        }
+
+    }
+    return false;
+
 
 };
 
@@ -56,7 +122,23 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
+
+
+
+
+
+Object.grabKeys = function(obj) {
+
+    let retValue=[];
+    for(const property in obj)
+    {
+        if(property===undefined) continue;
+        retValue.push(`${property}`);
+    }
+    return retValue;
+
+
+
 
 };
 
@@ -65,9 +147,6 @@ Object.grabValues = function() {
 
 };
 
-let myArray= [ 1,2,3,4,5,6,7];
 
 
-myArray.myEach((element,i)=>console.log(element,i,myArray));
 
-myArray.forEach((element,i)=>console.log(element,i,myArray));
