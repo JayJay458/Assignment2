@@ -10,6 +10,26 @@ Array.prototype.myMap = function() {
 
 // FILTER //
 
+// SOME //
+Array.prototype.mySome = function(operation) 
+{
+
+    for(let i=0;i<this.length;i++)
+    {
+        if(this[i]===undefined) continue;
+        if(operation(this[i],i,this))
+        {
+            return true;
+        }   
+    }
+
+    return false;
+};
+
+// EVERY //
+Array.prototype.myEvery = function() {
+=======
+
 
 Array.prototype.myFilter = function(operation) {
     let returnValue=[];
@@ -47,6 +67,7 @@ Array.prototype.myEvery = function(operation) {
 
 
 
+
 };
 
 // REDUCE //
@@ -55,6 +76,7 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
+
 
 Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
 
