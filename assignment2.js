@@ -19,7 +19,17 @@ Array.prototype.mySome = function() {
 };
 
 // EVERY //
-Array.prototype.myEvery = function() {
+
+Array.prototype.myEvery = function(operation) {
+    for(let i =0;i<this.length;i++)
+    {
+        if(!operation(this[i],i,this))
+        {
+            return false;
+        }
+    }
+    return true;
+
 
 };
 
@@ -49,6 +59,8 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
+
+
 Object.grabKeys = function(obj) {
 
     let retValue=[];
@@ -58,6 +70,7 @@ Object.grabKeys = function(obj) {
         retValue.push(`${property}`);
     }
     return retValue;
+
 };
 
 // VALUES //
@@ -65,11 +78,4 @@ Object.grabValues = function() {
 
 };
 
-//Test
-let myObject={
-    a: 'somestring',
-b: 42,
-c: false};
 
-console.log(Object.keys(myObject));
-console.log(Object.grabKeys(myObject));
