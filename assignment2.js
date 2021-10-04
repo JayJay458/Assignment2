@@ -49,11 +49,26 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
+Object.grabKeys = function(obj) {
 
+    let retValue=[];
+    for(const property in obj)
+    {
+        retValue.push(`${property}`);
+    }
+    return retValue;
 };
 
 // VALUES //
 Object.grabValues = function() {
 
 };
+
+//Test
+let myObject={
+    a: 'somestring',
+b: 42,
+c: false};
+
+console.log(Object.keys(myObject));
+console.log(Object.grabKeys(myObject));
