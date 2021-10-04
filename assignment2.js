@@ -54,6 +54,7 @@ Object.grabKeys = function(obj) {
     let retValue=[];
     for(const property in obj)
     {
+        if(property===undefined) continue;
         retValue.push(`${property}`);
     }
     return retValue;
