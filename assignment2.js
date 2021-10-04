@@ -16,8 +16,6 @@ Array.prototype.myMap = function() {
 
 };
 
-// FILTER //
-
 
 // SOME //
 Array.prototype.mySome = function(operation) 
@@ -35,11 +33,8 @@ Array.prototype.mySome = function(operation)
     return false;
 };
 
-// EVERY //
-Array.prototype.myEvery = function() {
 
-
-
+// FILTER //
 Array.prototype.myFilter = function(operation) {
     let returnValue=[];
     for(let i=0;i<this.length; i++)
@@ -55,14 +50,8 @@ Array.prototype.myFilter = function(operation) {
 
 };
 
-// SOME //
-Array.prototype.mySome = function() {
-
-};
 
 // EVERY //
-
-
 
 
 Array.prototype.myEvery = function(operation) {
@@ -74,12 +63,6 @@ Array.prototype.myEvery = function(operation) {
         }
     }
     return true;
-
-
-
-
-
-
 };
 
 // REDUCE //
@@ -88,8 +71,6 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
-
-
 
 Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
 
@@ -122,10 +103,6 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-
-
-
-
 
 Object.grabKeys = function(obj) {
 
