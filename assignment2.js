@@ -9,9 +9,6 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
-};
 
 // SOME //
 Array.prototype.mySome = function(operation) 
@@ -31,6 +28,45 @@ Array.prototype.mySome = function(operation)
 
 // EVERY //
 Array.prototype.myEvery = function() {
+=======
+
+
+Array.prototype.myFilter = function(operation) {
+    let returnValue=[];
+    for(let i=0;i<this.length; i++)
+    {
+        if(operation(this[i],i,this))
+        {
+            returnValue.push(this[i]);
+        }
+    }
+    return returnValue;
+
+
+};
+
+// SOME //
+Array.prototype.mySome = function() {
+
+};
+
+// EVERY //
+
+
+
+Array.prototype.myEvery = function(operation) {
+    for(let i =0;i<this.length;i++)
+    {
+        if(!operation(this[i],i,this))
+        {
+            return false;
+        }
+    }
+    return true;
+
+
+
+
 
 };
 
@@ -40,7 +76,20 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
+
+
+Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
+
+    for(let i =fromIndex;i<this.length;i++)
+    {
+        if(this[i]===searchFor)
+        {
+            return true;
+        }
+
+    }
+    return false;
+
 
 };
 
@@ -60,7 +109,21 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
+
+
+
+
+Object.grabKeys = function(obj) {
+
+    let retValue=[];
+    for(const property in obj)
+    {
+        if(property===undefined) continue;
+        retValue.push(`${property}`);
+    }
+    return retValue;
+
+
 
 };
 
@@ -69,24 +132,5 @@ Object.grabValues = function() {
 
 };
 
-//Test
-
-
-let myArray=[1,1,1,1,1,1]
-
-let result=myArray.some(element=> element%2===0);
-console.log(result);
-
-result=myArray.mySome(element=> element%2===0);
-console.log(result);
-
-
-myArray=[1,1,2,1,1]
-
-result=myArray.some(element=> element%2===0);
-console.log(result);
-
-result=myArray.mySome(element=> element%2===0);
-console.log(result);
 
 
