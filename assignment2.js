@@ -19,6 +19,7 @@ Array.prototype.mySome = function() {
 };
 
 // EVERY //
+
 Array.prototype.myEvery = function(operation) {
     for(let i =0;i<this.length;i++)
     {
@@ -28,6 +29,7 @@ Array.prototype.myEvery = function(operation) {
         }
     }
     return true;
+
 
 };
 
@@ -57,7 +59,17 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
+
+
+Object.grabKeys = function(obj) {
+
+    let retValue=[];
+    for(const property in obj)
+    {
+        if(property===undefined) continue;
+        retValue.push(`${property}`);
+    }
+    return retValue;
 
 };
 
@@ -67,16 +79,3 @@ Object.grabValues = function() {
 };
 
 
-//Test
-
-let myArray=[1,2,3,4,5,6]
-let result=myArray.every(element=>element%2===0)
-console.log(result)
-result=myArray.myEvery(element=>element%2===0)
-console.log(result)
-
-myArray=[2,4,6,8]
-result=myArray.every(element=>element%2===0)
-console.log(result)
-result=myArray.myEvery(element=>element%2===0)
-console.log(result)
