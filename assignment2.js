@@ -9,7 +9,19 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
+
+
+Array.prototype.myFilter = function(operation) {
+    let returnValue=[];
+    for(let i=0;i<this.length; i++)
+    {
+        if(operation(this[i],i,this))
+        {
+            returnValue.push(this[i]);
+        }
+    }
+    return returnValue;
+
 
 };
 
@@ -19,7 +31,21 @@ Array.prototype.mySome = function() {
 };
 
 // EVERY //
-Array.prototype.myEvery = function() {
+
+
+
+Array.prototype.myEvery = function(operation) {
+    for(let i =0;i<this.length;i++)
+    {
+        if(!operation(this[i],i,this))
+        {
+            return false;
+        }
+    }
+    return true;
+
+
+
 
 };
 
@@ -29,6 +55,7 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
+
 Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
 
     for(let i =fromIndex;i<this.length;i++)
@@ -40,6 +67,7 @@ Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
 
     }
     return false;
+
 
 };
 
@@ -59,7 +87,21 @@ Array.prototype.myLastIndexOf = function() {
 };
 
 // KEYS //
-Object.grabKeys = function() {
+
+
+
+
+Object.grabKeys = function(obj) {
+
+    let retValue=[];
+    for(const property in obj)
+    {
+        if(property===undefined) continue;
+        retValue.push(`${property}`);
+    }
+    return retValue;
+
+
 
 };
 
@@ -68,14 +110,5 @@ Object.grabValues = function() {
 
 };
 
-//test
 
-let myArray=[1,2,3,4,5,6,7]
-console.log(myArray.includes(6));
-console.log(myArray.myIncludes(6));
-console.log(myArray.includes(12));
-console.log(myArray.myIncludes(12));
-console.log(myArray.includes(2,3));
-console.log(myArray.myIncludes(2,3));
-console.log(myArray.includes(5,3));
-console.log(myArray.myIncludes(5,3));
+
