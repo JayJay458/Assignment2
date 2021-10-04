@@ -9,7 +9,17 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
+
+Array.prototype.myFilter = function(operation) {
+    let returnValue=[];
+    for(let i=0;i<this.length; i++)
+    {
+        if(operation(this[i],i,this))
+        {
+            returnValue.push(this[i]);
+        }
+    }
+    return returnValue;
 
 };
 
@@ -20,6 +30,7 @@ Array.prototype.mySome = function() {
 
 // EVERY //
 
+
 Array.prototype.myEvery = function(operation) {
     for(let i =0;i<this.length;i++)
     {
@@ -29,6 +40,7 @@ Array.prototype.myEvery = function(operation) {
         }
     }
     return true;
+
 
 
 };
@@ -61,6 +73,7 @@ Array.prototype.myLastIndexOf = function() {
 // KEYS //
 
 
+
 Object.grabKeys = function(obj) {
 
     let retValue=[];
@@ -70,6 +83,7 @@ Object.grabKeys = function(obj) {
         retValue.push(`${property}`);
     }
     return retValue;
+
 
 };
 
