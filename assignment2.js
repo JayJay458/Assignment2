@@ -10,6 +10,7 @@ Array.prototype.myMap = function() {
 
 // FILTER //
 
+
 Array.prototype.myFilter = function(operation) {
     let returnValue=[];
     for(let i=0;i<this.length; i++)
@@ -21,6 +22,7 @@ Array.prototype.myFilter = function(operation) {
     }
     return returnValue;
 
+
 };
 
 // SOME //
@@ -29,6 +31,7 @@ Array.prototype.mySome = function() {
 };
 
 // EVERY //
+
 
 
 Array.prototype.myEvery = function(operation) {
@@ -43,6 +46,7 @@ Array.prototype.myEvery = function(operation) {
 
 
 
+
 };
 
 // REDUCE //
@@ -51,7 +55,19 @@ Array.prototype.myReduce = function() {
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
+
+Array.prototype.myIncludes = function(searchFor,fromIndex=0) {
+
+    for(let i =fromIndex;i<this.length;i++)
+    {
+        if(this[i]===searchFor)
+        {
+            return true;
+        }
+
+    }
+    return false;
+
 
 };
 
@@ -74,6 +90,7 @@ Array.prototype.myLastIndexOf = function() {
 
 
 
+
 Object.grabKeys = function(obj) {
 
     let retValue=[];
@@ -85,11 +102,13 @@ Object.grabKeys = function(obj) {
     return retValue;
 
 
+
 };
 
 // VALUES //
 Object.grabValues = function() {
 
 };
+
 
 
