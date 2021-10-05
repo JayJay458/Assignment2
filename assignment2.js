@@ -120,8 +120,13 @@ Object.grabKeys = function(obj) {
 };
 
 // VALUES //
-Object.grabValues = function() {
-
+Object.grabValues = function(object) {
+    let temp_values=[];
+    for(const value in object)
+    {
+        temp_values.push(`${object[value]}`);
+    }
+    return temp_values;
 };
 
 
