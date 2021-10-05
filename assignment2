@@ -72,8 +72,14 @@ Array.prototype.myIndexOf = function(find_obj, start_from = 0) {
 };
 
 // PUSH //
-Array.prototype.myPush = function() {
-
+Array.prototype.myPush = function(...push_obj) {
+    let size = this.length;
+    for(let x of push_obj)
+    {
+        this[size] = x;
+        size++;
+    }
+    return size;
 };
 
 // LASTINDEXOF //
