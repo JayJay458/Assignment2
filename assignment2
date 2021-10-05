@@ -58,8 +58,17 @@ Array.prototype.myIncludes = function() {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-
+Array.prototype.myIndexOf = function(find_obj, start_from = 0) {
+    let index = -1;
+    for(let i = start_from; i<this.length; i++)
+    {
+        if(this[i] === find_obj)
+        {
+            index = i;
+            return index;
+        }
+    }
+    return index;
 };
 
 // PUSH //
