@@ -11,8 +11,13 @@ Array.prototype.myEach = function(operation) {
 };
 
 // MAP //
-Array.prototype.myMap = function() {
-
+Array.prototype.myMap = function(map_function) {
+    const temp_array = [];
+    for(let i=0; i<this.length; i++)
+    {
+        temp_array[i] = map_function(this[i]);
+    }
+    return temp_array;
 };
 
 // FILTER //
@@ -46,7 +51,6 @@ Array.prototype.myEvery = function(operation) {
     return true;
 };
 
-
 // REDUCE //
 Array.prototype.myReduce = function(reduce_function, init_value){
     if(typeof init_value === "undefined")
@@ -62,6 +66,7 @@ Array.prototype.myReduce = function(reduce_function, init_value){
         temp_value = reduce_function(temp_value, this[i]);
     }
     return temp_value;
+
 };
 
 // INCLUDES //
